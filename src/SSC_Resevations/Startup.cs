@@ -17,10 +17,10 @@ namespace SSC_Resevations
     public class Startup
     {
         public IConfigurationRoot Configuration { get; set; }
-        public Startup(IHostingEnvironment)
+        public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-                .SetBasePath(Environment.ContentRootPath)
+                .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json");
             Configuration = builder.Build();
         }
@@ -31,7 +31,7 @@ namespace SSC_Resevations
             services.AddMvc();
 
             services.AddEntityFramework()
-                .AddDbContext<SSC_ResevationsContext>(options =>
+                .AddDbContext<SSC_ReservationsContext>(options =>
                 options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
         }
 

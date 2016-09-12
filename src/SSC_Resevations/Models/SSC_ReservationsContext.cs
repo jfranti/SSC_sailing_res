@@ -12,7 +12,7 @@ namespace SSC_Resevations.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=SSC_Reservations;integrated security=true");
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=SSCReservations;integrated security=true");
         }
     }
 }

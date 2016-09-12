@@ -15,7 +15,14 @@ namespace SSC_Resevations.Controllers
         private SSC_ReservationsContext db = new SSC_ReservationsContext();
         public IActionResult Index()
         {
-            return View();
+            return View(db.Boats.ToList());
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisBoat = db.Boats.FirstOrDefault(boats => boats.BoatId == id);
+            return View(thisBoat);
+        }
+
     }
 }

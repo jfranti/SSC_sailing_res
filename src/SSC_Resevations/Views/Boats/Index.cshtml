@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<SSC_Resevations.Models.Boat>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Boats List</title>
+</head>
+<body>
+    <h2>Our fleet</h2>
+
+    <ul>
+        @foreach (var boat in Model)
+        {
+            <li>Boat Name: <span class="boatname">@Html.DisplayFor(modelBoat => boat.VesselName)</span></li>
+            <ul>
+                <li>Model: @Html.DisplayFor(modelBoat => boat.VesselType)</li>
+                <li>Length: @Html.DisplayFor(modelBoat => boat.VesselLength) feet</li>
+            </ul>
+            
+        }
+    </ul>
+</body>
+</html>
